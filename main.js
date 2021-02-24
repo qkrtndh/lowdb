@@ -4,7 +4,7 @@ const adapter = new FileSync('db.json')//데이터를 db.json이라는 파일에
 const db = low(adapter)//lowdb에 파일 동기형식으로 데이터를 저장하겠다고 지정.
 
 db.defaults({ topic: [], author: [] }).write();//기본적으로 준비되어야 할 데이터를 초기화한다. 객체형식으로 json 파일에 추가된다.
-db.get('author').push({
+/*db.get('author').push({
     id: 1, name: 'egoing', profile: 'developher'
 }).write();
 db.get('topic').push({
@@ -13,8 +13,10 @@ db.get('topic').push({
 db.get('topic').push({
     id: 2, title: 'mysql', description: 'mysql is ...', author: 1
 }).write();
+*/
 
-
+//console.log(db.get('topic').value())
+console.log(db.get('topic').filter({author:1,title:'lowdb'}).value())
 
 
 
