@@ -1,4 +1,5 @@
 const low = require('lowdb') //lowdb 모듈을 불러온다
+const shortid = require('shortid')//shortid 모듈
 const FileSync = require('lowdb/adapters/FileSync')//어떤방식으로 데이터를 저장할 것인가. 여기서는 파일동기형식
 const adapter = new FileSync('db.json')//데이터를 db.json이라는 파일에 json 형식으로 저장하겠다.
 const db = low(adapter)//lowdb에 파일 동기형식으로 데이터를 저장하겠다고 지정.
@@ -19,6 +20,22 @@ db.get('topic').push({
 console.log(db.get('topic').filter({author:1,title:'lowdb'}).value())
 //console.log(db.get('topic').find({id:2}).assign({title:'mysql & mariadb',description:'mysql & mariadb is ...'}).write())
 console.log(db.get('topic').remove({author:2}).write())
+
+var sid = shortid.generate();
+db.get('author').push({
+id:sid,
+name:'taeho',
+profile:'data sientist'
+}).write();
+db.get('topic').push({
+id:shortid.generate(),
+title:'postgresql',
+description:'postgresql is ...',
+author:sid
+}).write();
+
+
+
 
 /*
 var http = require('http');	// 서버 만드는 모듈 불러오기
