@@ -17,8 +17,8 @@ db.get('topic').push({
 
 //console.log(db.get('topic').value())
 console.log(db.get('topic').filter({author:1,title:'lowdb'}).value())
-
-
+//console.log(db.get('topic').find({id:2}).assign({title:'mysql & mariadb',description:'mysql & mariadb is ...'}).write())
+console.log(db.get('topic').remove({author:2}).write())
 
 /*
 var http = require('http');	// 서버 만드는 모듈 불러오기
