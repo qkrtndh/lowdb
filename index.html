@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://unpkg.com/lodash@4/lodash.min.js"></script><!--low db가 의존하는 파일-->
+    <script src="https://unpkg.com/lowdb@0.17/dist/low.min.js"></script><!--low db-->
+    <script src="https://unpkg.com/lowdb@0.17/dist/LocalStorage.min.js"></script><!--local storage 관련-->
+    <script>
+      var adapter = new LocalStorage('db')//로컬스토리지 db에 다가
+      var db = low(adapter)//lowdb에 저장하겠다.
+    </script>
+
+
+</head>
+<body>
+    <h1>test</h1>
+</body>
+</html>
